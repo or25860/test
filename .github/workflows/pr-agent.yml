@@ -21,8 +21,11 @@ jobs:
         uses: the-pr-agent/pr-agent@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           OPENAI_KEY: ${{ secrets.LLM_API_KEY }}
-          OPENAI.API_BASE: "https://api.deepseek.com"
-          CONFIG.MODEL: "openai/deepseek-flash"
+          OPENAI.API_BASE: ${{ vars.LLM_BASE_URL }}
+
+          CONFIG.MODEL: ${{ vars.LLM_MODEL }}
           CONFIG.FALLBACK_MODELS: '[]'
+
           CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32000"
